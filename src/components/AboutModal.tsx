@@ -5,11 +5,17 @@ import {
   TextContent,
   ButtonVariant,
 } from '@patternfly/react-core';
-import { Api, DetailList, DetailItem, Config } from 'openshift-assisted-ui-lib';
+import { OCM } from 'openshift-assisted-ui-lib';
+// import { ListVersions } from 'openshift-assisted-ui-lib/dist/src/index-ocm';
 import { GIT_SHA, VERSION, SERVICE_LABELS, IMAGE_REPO } from '../config/standalone';
 import redHatLogo from '../images/Logo-Red_Hat-OpenShift_Container_Platform-B-Reverse-RGB.png';
 
-const { getVersions, handleApiError } = Api;
+const {
+  Api: { getVersions, handleApiError },
+  Constants,
+  DetailList,
+  DetailItem,
+} = OCM;
 
 export const AboutModalButton: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
@@ -31,7 +37,7 @@ type AboutModalProps = {
 };
 
 const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
-  const [{ versions, releaseTag }, setVersions] = React.useState<Api.ListVersions>({
+  const [{ versions, releaseTag }, setVersions] = React.useState<OCM.ListVersions>({
     versions: {},
     releaseTag: undefined,
   });
@@ -90,7 +96,7 @@ const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
             />
             <DetailItem
               title="Assisted Installer UI library version"
-              value={Config.getAssistedUiLibVersion()}
+              value={Constants.getAssistedUiLibVersion()}
             />
             {Object.keys(versions || {}).map((key) => {
               const version = versions ? versions[key] : '';

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Brand, PageHeader, PageHeaderTools, Button, ButtonVariant } from '@patternfly/react-core';
-import { Config } from 'openshift-assisted-ui-lib';
+import { OCM } from 'openshift-assisted-ui-lib';
 import upstreamLogo from '../../images/metal3_facet-whitetext.png';
 import redhatLogo from '../../images/Logo-Red_Hat-OpenShift_Container_Platform-B-Reverse-RGB.png';
 import { ExternalLinkAltIcon } from '@patternfly/react-icons';
 import AboutModalButton from '../AboutModal';
 
-const { getProductBrandingCode, FEEDBACK_FORM_LINK } = Config;
+const { getProductBrandingCode, FEEDBACK_FORM_LINK } = OCM.Constants;
 
 const getBrandingDetails = () => {
   switch (getProductBrandingCode()) {

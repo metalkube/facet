@@ -6,4 +6,4 @@
 */
 @import '~@patternfly/patternfly/patternfly.css';
 @import '~@patternfly/patternfly/patternfly-addons.css';
-@import '~openshift-assisted-ui-lib/dist/index.css';
+@import '~openshift-assisted-ui-lib/dist/index-ocm.css';
